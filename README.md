@@ -1,6 +1,6 @@
 # Mnemonic
 
-Elixir library for generating deterministic private keys from random words according to BIP39 standard:
+Library for generating deterministic private keys from random words according to BIP39 standard:
 
 ```elixir
   Mnemonic.generate()
@@ -30,8 +30,7 @@ by adding `mnemonic` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:mnemonic, "~> 0.1.0"},
-    {:ex_doc, ">= 0.0.0", only: :dev}
+    {:mnemonic, "~> 0.2.0"}
   ]
 end
 ```

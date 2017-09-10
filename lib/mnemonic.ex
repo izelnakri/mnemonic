@@ -28,7 +28,7 @@ defmodule Mnemonic do
 
   def entropy_to_mnemonic(entropy) do
     target_entropy = case String.valid?(entropy) do
-      true -> Base.decode16!(entropy, case: :mixed)
+      true -> Base.decode16!(entropy, case: :mixed) # NOTE: gives error sometimes
       _ -> entropy
     end
     entropy_length = byte_size(target_entropy)

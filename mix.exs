@@ -28,7 +28,7 @@ defmodule Mnemonic.Mixfile do
 
   def package do
     [
-      name: :eth,
+      name: :mnemonic,
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
       maintainers: ["Izel Nakri"],
       licenses: ["MIT License"],
