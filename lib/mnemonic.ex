@@ -19,7 +19,7 @@ defmodule Mnemonic do
   @invalid_mnemonic "Invalid mnemonic"
   @invalid_checksum "Invalid mnemonic checksum"
 
-  def generate(strength \\ 128) # alias: entropy_to_mnemonic
+  def generate(strength \\ 256)
   def generate(strength) when rem(strength, 32) !== 0, do: raise @invalid_entropy
   def generate(strength) do
     entropy = :crypto.strong_rand_bytes(trunc(strength / 8))
@@ -98,9 +98,9 @@ defmodule Mnemonic do
   def binary_to_byte(bin), do: Integer.parse(bin, 2) |> elem(0)
 
   def derive_checksum_bits(entropy) do
-    cs = (byte_size(entropy) * 8) / 32 |> trunc
+    checksum_length = (byte_size(entropy) * 8) / 32 |> trunc
     hash = :crypto.hash(:sha256, entropy)
-    to_binary_string(hash) |> String.slice(0..(cs - 1))
+    to_binary_string(hash) |> String.slice(0..(checksum_length - 1))
   end
 
   def to_binary_string(binary) do
@@ -111,8 +111,7 @@ defmodule Mnemonic do
 
   defp lpad(string, pad_string, length) do
     if String.length(string) < length do
-      str = pad_string <> string
-      lpad(str, pad_string, length)
+      lpad(pad_string <> string, pad_string, length)
     else
       string
     end
