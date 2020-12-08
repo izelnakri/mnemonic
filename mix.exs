@@ -1,7 +1,7 @@
 defmodule Mnemonic.Mixfile do
   use Mix.Project
 
-  @version "0.2.3"
+  @version "0.2.4"
   @source_url "https://github.com/izelnakri/mnemonic"
 
   def project do
@@ -12,7 +12,8 @@ defmodule Mnemonic.Mixfile do
       start_permanent: Mix.env == :prod,
       deps: deps(),
       package: package(),
-      description: description()
+      description: description(),
+      docs: docs()
     ]
   end
 
