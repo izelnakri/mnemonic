@@ -16,10 +16,7 @@ Library for generating deterministic private keys from random words according to
   # "00000000000000000000000000000000"
 ```
 
-TODO:
-- add tests
 - add examples
-- add documentation
 - maybe do mnemonic to seed
 
 ## Installation
