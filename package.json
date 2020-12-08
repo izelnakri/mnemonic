@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "mnemonic",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": "Izel Nakri",
   "license": "MIT",
   "description": "Elixir library for generating deterministic private keys from random words according to BIP39 standard.",
