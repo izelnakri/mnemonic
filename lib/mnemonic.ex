@@ -4,15 +4,6 @@ defmodule Mnemonic do
   Documentation for Mnemonic.
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Mnemonic.hello
-      :world
-
-  """
   @words Mnemonic.Words.all()
 
   @invalid_entropy "Invalid entropy"
@@ -87,13 +78,22 @@ defmodule Mnemonic do
     end
   end
 
-  # def mnemonic_to_seed(mnemonic, password) do
-  #
-  # end
+  def mnemonic_to_seed(mnemonic, password \\ "") do
+    Pbkdf2.Base.hash_password(mnemonic, "mnemonic" <> password, [rounds: 2048, format: :hex, digest: "sha512", length: 64])
+  end
 
-  # def validate(words) do # NOTE: maybe
-  #
-  # end
+  def validate_mnemonic(words) do
+    try do
+      mnemonic_to_entropy(words)
+      true
+    rescue
+      _ -> false
+    end
+  end
+
+  def validate_seed(mnemonic, hash, password \\ "") do
+    Pbkdf2.Base.verify_pass(mnemonic, hash, "mnemonic" <> password, :sha512, "2048", :hex)
+  end
 
   def binary_to_byte(bin), do: Integer.parse(bin, 2) |> elem(0)
 
