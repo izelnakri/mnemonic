@@ -1,7 +1,7 @@
 defmodule Mnemonic.Mixfile do
   use Mix.Project
 
-  @version "0.2.5"
+  @version "0.3.0"
   @source_url "https://github.com/izelnakri/mnemonic"
 
   def project do
