@@ -19,9 +19,9 @@
     "release": "node_modules/.bin/release-it --no-npm.publish && MIX_ENV=dev mix hex.publish --yes"
   },
   "devDependencies": {
-    "@j-ulrich/release-it-regex-bumper": "^1.2.0",
+    "@j-ulrich/release-it-regex-bumper": "^1.2.1",
     "auto-changelog": "^2.2.1",
-    "release-it": "^14.2.2"
+    "release-it": "^14.5.1"
   },
   "release-it": {
     "plugins": {
